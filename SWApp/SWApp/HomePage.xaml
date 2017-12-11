@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SWApp.HomePage"
+             Title="ChauffeursApp">
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White"></OnPlatform>
+    </ContentPage.BackgroundColor>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Uitloggen" Clicked="OnLogoutButtonClicked" Priority="1" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout VerticalOptions="StartAndExpand">
+                <Label x:Name="lbWelcome" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" FontSize="28" FontAttributes="Bold" TextColor="Black"/>
+                <Label Text="Kies een order" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                <ListView x:Name="lvOverzicht" Margin="20" ItemTapped="TappedItem" SeparatorColor="#0080FF" SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="125"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding Int}" FontSize="Medium" Grid.Column="0"/>
+                                    <Label Text="{Binding Locatie}" FontSize="Medium" Grid.Column="1" />
+                                    <Label Text="{Binding Status}" FontSize="Medium" Grid.Column="2" />
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SWApp.Bestelling"
+             Title="ChauffeursApp">
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color" Android="White" iOS="White" WinPhone="White"></OnPlatform>
+    </ContentPage.BackgroundColor>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Terug" Clicked="BackButtonClicked" Priority="1" Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="10,10">
+                <WebView x:Name="Maps" HeightRequest="300" WidthRequest="400" HorizontalOptions="Fill" VerticalOptions="Fill"/>
+                <Label Text="Order:" FontAttributes="Bold"/>
+                <Label x:Name="lbOrderID" Text="1"/>
+                <Label x:Name="lbChauffeur" Text="Erik van den Borg"/>
+                <Label x:Name="lbKlant" Text="Snelle Wiel"/>
+                <Label x:Name="lbLocatieVan" Text="Eindhoven, Sterrenlaan 10"/>
+                <Label x:Name="lbLocatieNaar" Text="Best, Hoofdstraat 1"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Switch x:Name="swOphalen" IsToggled="False" Grid.Column="0" Grid.Row="0" Toggled="Ophalen_Toggled" HorizontalOptions="Start" HeightRequest="40"/>
+                    <Entry x:Name="enOphalen" IsEnabled="False" Grid.Column="0" Grid.Row="1" Placeholder="Ophalen"/>
+                    <Switch x:Name="swBezorgen" IsToggled="False" Grid.Column="1" Grid.Row="0" Toggled="Bezorgen_Toggled" HorizontalOptions="Start" HeightRequest="40"/>
+                    <Entry x:Name="enBezorgen" IsEnabled="False" Grid.Column="1" Grid.Row="1" Placeholder="Bezorgen"/>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
